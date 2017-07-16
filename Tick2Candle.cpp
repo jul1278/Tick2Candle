@@ -5,8 +5,6 @@
 #include <boost/program_options.hpp>
 #include <boost/interprocess/file_mapping.hpp>
 
-namespace po = boost::program_options;
-
 // Config
 struct Config {
     boost::filesystem::path tickDirectory; 
@@ -24,7 +22,7 @@ struct Config {
     bool useMid; 
 };
 
-//
+// ValidatedState
 struct ValidatedState {
     bool isValid; 
 
@@ -97,9 +95,7 @@ int main(int argc, char** argv) {
     // --ph period hours
     // --ps period second
 
-    
-
-    po::options_description desc("Options"); 
+    boost::program_options::options_description desc("Options"); 
     Config config; 
 
     desc.add_options()
@@ -159,5 +155,6 @@ int main(int argc, char** argv) {
 // Desc:
 //-----------------------------------------------------------------------
 bool Ticks2Candle(boost::filesystem::directory_entry& file, const Config& config) {
+    // TODO
     return true; 
 }
